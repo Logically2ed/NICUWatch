@@ -19,25 +19,24 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] feeding schedule
     - [ ] feeding amounts
     - [ ] time stamped comments
-4. Guardian Dashboard:
-    - [ ] vitals
-    - [ ] Significant event photo capture
-    - [ ] Lab results
-    - [ ] feeding schedule
-    - [ ] feeding amounts
-    - [ ] time stamped comments
+4. Caretaker Dashboard:
+    - [ ] edit vitals
+    - [ ] edit Significant event photo capture
+    - [ ] edit Lab results
+    - [ ] edit feeding schedule
+    - [ ] edit feeding amounts
+    - [ ] place time stamped comments
 5. UX:
     - [ ] Vitals and events layed out over graph.
 
-## Phase 2: MVP With Polish
+## Phase 2: MVP With Pollish
 1. UX:
     - [ ] Information first style design.
     - [ ] Hide advanced settings
-    - [ ] 
 2. UI:
-    - [ ] prittify for use of  
+    - [ ] prittify to organize objects
 3. Dashboard:
-    - [ ]
+    - [ ] create GUI for housing graph
 
 ## Phase 3: Final Product Version 1
 1. Dashboard:
