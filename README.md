@@ -6,15 +6,15 @@ NICU Watch is a web application ment to monitor and keep tabs on the vitals and 
 
 ### Project Technologies
 
-Amazon AWS , MYSQL
+Amazon AWS , MYSQL, the rest to be determined by necessary findings.
 
 ### Design
 
-* [User Stories](*DesignDocuments/userStories.md)
-* [Tasks](*DesignDocuments/tasks.md)  
-* [Screen Design](*DesignDocuments/Screens.md)
-* [Application Flow](*DesignDocuments/applicationFlow.md)
-* [Database Design](*DesignDocuments/databaseDiagram.png)
+* [User Stories](DesignDocuments/userStories.md)
+* [Tasks](DesignDocuments/tasks.md)  
+* [Screen Design](DesignDocuments/Screens.md)
+* [Application Flow](DesignDocuments/applicationFlow.md)
+* [Database Design](DesignDocuments/databaseDiagram.md)
 
 ### [Project Plan](ProjectPlan.md)
 

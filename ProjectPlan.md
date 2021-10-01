@@ -12,6 +12,8 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] sepperation between care providers and patient guardians
 2. welcome and login:
     - [ ] Welcome home page, written in basic html using Bootstrap for ease.
+2. Database:
+    - [ ] Build out basic DB schema w/o passwords
 3. Guardian Dashboard:
     - [ ] vitals
     - [ ] Significant event photo capture
@@ -28,6 +30,8 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] place time stamped comments
 5. UX:
     - [ ] Vitals and events layed out over graph.
+1. Hoasting:
+    - [ ] Hoasting will be done locally 
 
 ## Phase 2: MVP With Pollish
 1. UX:
@@ -35,8 +39,11 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] Hide advanced settings
 2. UI:
     - [ ] prittify to organize objects
+    - [ ] 
 3. Dashboard:
     - [ ] create GUI for housing graph
+4. Hoasting:
+    - [ ] Migrate to AWS
 
 ## Phase 3: Final Product Version 1
 1. Dashboard:
@@ -45,3 +52,5 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] Live vitals
 2. Login:
     - [ ] 2FA
+3. UI:
+    - [ ] smooth animations
