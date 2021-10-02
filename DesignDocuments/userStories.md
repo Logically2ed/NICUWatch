@@ -22,11 +22,11 @@ As any user, I want to be able to search for a metric and see the full history o
 
 ### About
 
-As a user I want to find the *
+As a user I want to know what diagnosis means and where i can find beter resources to understand how this will affect my baby.*
 
-### Add Trail Report
+### Error Reporting
 
-As a registered user, I want to be able to add trail reports for a trail so that others will know the current conditions.*
+As a concerned guardian, I want to be able to report things that i dont like about my childs care or if i find a discrepency in a diagnosis.
 
 ### Add Trail 
 
