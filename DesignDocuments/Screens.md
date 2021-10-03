@@ -15,3 +15,7 @@
 ### Provider Dashboard
 
 ![Provider Dashboard](NICUWatchArtboards/ProviderDashboard.png)
+
+### Photo Upload
+
+![Photo Upload](NICUWatchArtboards/PhotoUpload.png)

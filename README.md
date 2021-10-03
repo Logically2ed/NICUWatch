@@ -27,7 +27,6 @@ NICU Watch is a web application ment to monitor and keep tabs on the vitals and 
 * Independent Research Topic/s
   * CI tools in AWS
   * Materialize
-  * Google Maps API
   * Hibernate Validation
   * Hibernate Search
 * Project Lombok
@@ -48,4 +47,4 @@ NICU Watch is a web application ment to monitor and keep tabs on the vitals and 
 ### Progress Documentation
 #### [Weekly Refelection](WeeklyReflection.md)
 #### [Journal](Journal.md)
-#### [TimeLog](TimeLog.md)
+#### [TimeLog](Timelog.md)
