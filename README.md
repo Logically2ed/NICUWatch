@@ -34,6 +34,8 @@ NICU Watch is a web application ment to monitor and keep tabs on the vitals and 
   * JUnit tests to achieve 80%+ code coverage 
 * IDE: IntelliJ IDEA
 
+(API for medical definiotions)
+
 ### Design
 
 * [User Stories](DesignDocuments/userStories.md)

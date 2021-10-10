@@ -36,4 +36,8 @@ As a registered user or admin, I want to be able to be able to reset my password
 
 As a registered user or admin, I want to be able to edit my profile.
 
+### Add photos
+
+As a care provider i want to be able to upload a photo of the patient.
+
 *Denotes MVP
