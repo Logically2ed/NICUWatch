@@ -10,10 +10,11 @@ An application that hosts a login, users, and live updates of the important vita
 1. User login and independant settings saving:
     - [ ] Individual users
     - [ ] sepperation between care providers and patient guardians
-2. welcome and login:
+2. welcome and login page:
     - [ ] Welcome home page, written in basic html using Bootstrap for ease.
 2. Database:
-    - [ ] Build out basic DB schema w/o passwords
+    - [ ] Build out basic DB schema (eg. lab results, vitals, etc.)
+    - [ ] Authentication
 3. Guardian Dashboard:
     - [ ] vitals
     - [ ] Significant event photo capture
@@ -31,7 +32,8 @@ An application that hosts a login, users, and live updates of the important vita
 5. UX:
     - [ ] Vitals and events layed out over graph.
 1. Hoasting:
-    - [ ] Hoasting will be done locally 
+    - [ ] Hoasting will be done locally
+    - [ ] Local hosting will be migrated to AWS
 
 ## Phase 2: MVP With Pollish
 1. UX:
