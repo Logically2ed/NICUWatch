@@ -1,5 +1,4 @@
-# NICUWatch Project Plan / User Stories
-
+# NICUWatch Project Plan
 ## Initiatave
 
 This is an application ment to moniter the health of a NICU patient and give access to that for the parents.
@@ -43,7 +42,7 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] prittify to organize objects
     - [ ] 
 3. Dashboard:
-    - [ ] create GUI for housing graph
+    - [ ] create GUI for vitals graph
 4. Hoasting:
     - [ ] Migrate to AWS
 
@@ -56,3 +55,9 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] 2FA
 3. UI:
     - [ ] smooth animations
+
+    <br><br><br>
+
+# Test Equipment:
+    - [ ] Random data server (For Vitals data)
+    - [ ] Access code management and assignent.
