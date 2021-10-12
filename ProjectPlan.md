@@ -20,14 +20,14 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] Lab results
     - [ ] feeding schedule
     - [ ] feeding amounts
-    - [ ] time stamped comments
+    - [ ] add, edit, delete time stamped comments
 4. Caretaker Dashboard:
     - [ ] edit vitals
     - [ ] edit Significant event photo capture
     - [ ] edit Lab results
     - [ ] edit feeding schedule
     - [ ] edit feeding amounts
-    - [ ] place time stamped comments
+    - [ ] add, edit, delete time stamped comments
 5. UX:
     - [ ] Vitals and events layed out over graph.
 1. Hoasting:
