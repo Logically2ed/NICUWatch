@@ -66,8 +66,11 @@ public class ReportDaoTest {
 
     @Test
     void testUpdate() {
-        String testName = "Hips";
+        String stringToUpdate = "Eye";
         Report reportToUpdate = dao.getByReference(1);
-
+        reportToUpdate.setTest(stringToUpdate);
+        dao.saveOrUpdate(reportToUpdate);
+        Report newlyUpdatedTest = dao.getByReference(1);
+        assertEquals(stringToUpdate, newlyUpdatedTest.getTest());
     }
 }

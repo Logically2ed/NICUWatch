@@ -42,7 +42,9 @@ public class ReportDao {
      */
     public void saveOrUpdate(Report report) {
         Session session = openCurrentSession();
+        Transaction transaction = session.beginTransaction();
         session.saveOrUpdate(report);
+        transaction.commit();
         session.close();
     }
     
@@ -77,8 +79,8 @@ public class ReportDao {
     public List<Report> getAll() {
 
         Session session = openCurrentSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Report> query = builder.createQuery( Report.class );
+        //CriteriaBuilder builder = session.getCriteriaBuilder();
+        //CriteriaQuery<Report> query = builder.createQuery( Report.class );
         //Root<Report> root = query.from( Report.class );
         List<Report> reports = session.createQuery( "from Report " ).getResultList();
 
@@ -86,11 +88,5 @@ public class ReportDao {
         session.close();
 
         return reports;
-    }
-
-    public void getDoctorName() {
-        Session session = openCurrentSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        
     }
 }
