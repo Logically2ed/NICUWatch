@@ -80,11 +80,17 @@ public class ReportDao {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Report> query = builder.createQuery( Report.class );
         //Root<Report> root = query.from( Report.class );
-        List<Report> reports = session.createQuery( query ).getResultList();
+        List<Report> reports = session.createQuery( "from Report" ).getResultList();
 
         logger.debug("The list of users " + reports);
         session.close();
 
         return reports;
+    }
+
+    public void getDoctorName() {
+        Session session = openCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        
     }
 }

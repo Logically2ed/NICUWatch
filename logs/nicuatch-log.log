@@ -1,0 +1,2 @@
+[DEBUG] 2021-10-20 15:57:40.974 [main] ReportDao - The list of users [TestResult [doctor=doctor, notes=I said its fine!, reference=1, result=Its Fine, test=Leg SStuff], TestResult [doctor=doctor, notes=I said its fine!, reference=2, result=Its Fine, test=Leg SStuff], TestResult [doctor=doctor, notes=I said its fine!, reference=3, result=Its Fine, test=Leg SStuff]]
+[DEBUG] 2021-10-20 15:57:40.984 [main] ReportDaoTest - this test is fine.

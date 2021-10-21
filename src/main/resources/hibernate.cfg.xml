@@ -1,12 +1,12 @@
 <!--TODO add the mapping class element/s -->
 
-<?xml version='1.0' encoding='utf-8'?>
+<!--TODO determin if this change from PUBLIC to SYSTEM will affect deployment to AWS -->
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/NICUWatch</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/NICUWatchtest?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <property name="connection.username">root</property>
@@ -18,7 +18,7 @@
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
-
+        <mapping class= "nicuwatch.entity.Report"/>
 
 
     </session-factory>
