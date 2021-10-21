@@ -3,8 +3,6 @@ package nicuwatch.controller;
 import nicuwatch.entity.Report;
 import nicuwatch.persistence.SessionFactoryProvider;
 
-import com.mysql.cj.xdevapi.Result;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -19,7 +17,7 @@ public class main {
         Session sesh = session.openSession();
         Transaction tx = sesh.beginTransaction();
         Report report = new Report();
-        report.setDoctor("doctor");
+        report.setDocId("doctor");
         report.setTest("Leg SStuff");
         report.setResult("Its Fine");
         report.setNotes("I said its fine!");

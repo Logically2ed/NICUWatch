@@ -10,7 +10,7 @@ create table NICUWatchtest.reports
 )
     comment 'Test results of tests taken of the patient.';
 
-INSERT INTO NICUWatchtest.reports (Doctor, Test, Result, Notes) VALUES ('doctor', 'Leg SStuff', 'Its Fine', 'I said its fine!');
-INSERT INTO NICUWatchtest.reports (Doctor, Test, Result, Notes) VALUES ('doctor', 'Leg SStuff', 'Its Fine', 'I said its fine!');
-INSERT INTO NICUWatchtest.reports (Doctor, Test, Result, Notes) VALUES ('doctor', 'Leg SStuff', 'Its Fine', 'I said its fine!');
+INSERT INTO NICUWatchtest.reports (docId, Test, Result, Notes) VALUES ('doctor', 'Leg SStuff', 'Its Fine', 'I said its fine!');
+INSERT INTO NICUWatchtest.reports (docId, Test, Result, Notes) VALUES ('doctor', 'Leg SStuff', 'Its Fine', 'I said its fine!');
+INSERT INTO NICUWatchtest.reports (docId, Test, Result, Notes) VALUES ('doctor', 'Leg SStuff', 'Its Fine', 'I said its fine!');
 

@@ -8,8 +8,10 @@ public class Report {
     @Id
     @Column(name = "ref")
     private int reference;
-    @Column(name = "doctor")
-    private String doctor;
+    @Column(name = "patientId")
+    private String patientId;
+    @Column(name = "docId")
+    private String docId;
     @Column(name = "test")
     private String test;
     @Column(name = "result")
@@ -26,11 +28,17 @@ public class Report {
     public void setReference(int reference) {
         this.reference = reference;
     }
-    public String getDoctor() {
-        return doctor;
+    public String getPatientId() {
+        return patientId;
     }
-    public void setDoctor(String doctor) {
-        this.doctor = doctor;
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
+    }
+    public String getDocId() {
+        return docId;
+    }
+    public void setDocId(String docId) {
+        this.docId = docId;
     }
     public String getTest() {
         return test;
@@ -52,7 +60,8 @@ public class Report {
     }
     @Override
     public String toString() {
-        return "TestResult [doctor=" + doctor + ", notes=" + notes + ", reference=" + reference + ", result=" + result
-                + ", test=" + test + "]";
+        return "Report [docId=" + docId + ", notes=" + notes + ", patientId=" + patientId + ", reference=" + reference
+                + ", result=" + result + ", test=" + test + "]";
     }
+
 }
