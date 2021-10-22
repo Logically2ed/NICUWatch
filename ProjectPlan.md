@@ -17,7 +17,7 @@ An application that hosts a login, users, and live updates of the important vita
 3. Guardian Dashboard:
     - [ ] vitals
     - [ ] Significant event photo capture
-    - [ ] Lab results
+    - [X] Lab results
     - [ ] feeding schedule
     - [ ] feeding amounts
     - [ ] add, edit, delete time stamped comments

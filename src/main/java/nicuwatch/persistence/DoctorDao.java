@@ -7,15 +7,14 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import javax.persistence.criteria.*;
 
-import nicuwatch.entity.Report;
+import nicuwatch.entity.Doctor;
 
-public class ReportDao {
+public class DoctorDao {
     
     private final Logger logger = LogManager.getLogger(this.getClass());
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
-    
+
     /** 
      * @return Session
      */
@@ -25,66 +24,68 @@ public class ReportDao {
     }
 
     /** 
-     * @param id
-     * @return Report
+     * @param pId
+     * @return Doctor
      */
-    public Report getByReference(int id) {
+    public Doctor getByDocId(String dId) {
         Session session = openCurrentSession();
-        Report report = session.get( Report.class, id );
+        Doctor doctor = session.get(Doctor.class, dId);
         session.close();
-        return report;
+        return doctor;
     }
-    
+
     /** 
-     * @param report
+     * @param doctor
      */
-    public void saveOrUpdate(Report report) {
+    public void saveOrUpdate(Doctor doctor) {
         Session session = openCurrentSession();
         Transaction transaction = session.beginTransaction();
-        session.saveOrUpdate(report);
+        session.saveOrUpdate(doctor);
         transaction.commit();
         session.close();
     }
     
     /** 
-     * @param report
+     * @param doctor
      * @return int
      */
-    public int insert(Report report){
+    public int insert(Doctor doctor){
         int id = 0;
         Session session = openCurrentSession();
         Transaction transaction = session.beginTransaction();
-        id = (int)session.save(report);
+        id = (int)session.save(doctor);
         transaction.commit();
         session.close();
         return id;
     }
     
+    // FIXME i think in order to delete a row in the doctors table i ned to reassign a doctor to the associated rows first. This will probably have to be a palce holder name. Likely something that will present a flag for NULL doctor.
     /** 
-     * @param report
+     * @param doctor
      */
-    public void delete(Report report){
+    public void delete(Doctor doctor){
         Session session = openCurrentSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(report);
+        session.delete(doctor);
         transaction.commit();
         session.close();
-    }
-    
+    } 
+
     /** 
-     * @return List<Report>
+     * @return List<Doctor>
      */
-    public List<Report> getAll() {
+    public List<Doctor> getAll() {
 
         Session session = openCurrentSession();
         //CriteriaBuilder builder = session.getCriteriaBuilder();
         //CriteriaQuery<Report> query = builder.createQuery( Report.class );
         //Root<Report> root = query.from( Report.class );
-        List<Report> reports = session.createQuery( "from Report " ).getResultList();
+        List<Doctor> doctors = session.createQuery( "from Doctor " ).getResultList();
 
-        logger.debug("The list of users " + reports);
+        logger.debug("The list of users " + doctors);
         session.close();
 
-        return reports;
+        return doctors;
     }
+
 }

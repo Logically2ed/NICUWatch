@@ -48,5 +48,3 @@ NICU Watch is a web application ment to monitor and keep tabs on the vitals and 
 
 ### Progress Documentation
 #### [Weekly Refelection](WeeklyReflection.md)
-#### [Journal](Journal.md)
-#### [TimeLog](Timelog.md)
