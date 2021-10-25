@@ -6,12 +6,10 @@ import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "Doctor")
+@Entity(name = "doctor")
 @Table(name = "DOCTORS")
 public class Doctor {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
-    @GenericGenerator(name = "native",strategy = "native")
     private String docId;
 
     @Column(name = "firstName")
@@ -23,9 +21,12 @@ public class Doctor {
     @Column(name = "tenure")
     private int tenure;
 
-    @ManyToOne
+    @OneToMany
     private Report report;
-    
+
+    @OneToMany(mappedBy = "REPORTS", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Doctor> report = new HashSet<>();
+
     public Doctor() {
     }
 

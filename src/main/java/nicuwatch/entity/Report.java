@@ -7,19 +7,14 @@ import org.hibernate.annotations.GenericGenerator;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity(name = "report")
+@Entity(name = "Report")
 @Table(name = "REPORTS")
 public class Report {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    //@Column(name = "ref")
+    @Column(name = "ref")
     private int reference;
-
-    @Column(name = "patientId")
-    private String patientId;
-
-    private Doctor docId;
     
     @Column(name = "test")
     private String test;
@@ -30,17 +25,21 @@ public class Report {
     @Column(name = "notes")
     private String notes;
 
-    @OneToMany(mappedBy = "REPORTS", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<Doctor> report = new HashSet<>();
+    @ManyToOne
+    private String patientId;
+
+    @ManyToOne
+    private Doctor docId;
     
     public Report() {
     }
 
-    public Report(String patientId, String test, String result, String notes) {
-        this.patientId = patientId;
+    public Report(String test, String result, String notes, String patientId, Doctor docId) {
         this.test = test;
         this.result = result;
         this.notes = notes;
+        this.patientId = patientId;
+        this.docId = docId;
     }
 
     public int getReference() {
@@ -85,19 +84,15 @@ public class Report {
         this.notes = notes;
     }
 
-    public Set<Doctor> getReport() {
-        return report;
-    }
-
-    public void setReport(Set<Doctor> report) {
-        this.report = report;
-    }
-
     @Override
     public String toString() {
-        return "Report [docId=" + docId + ", notes=" + notes + ", patientId=" + patientId + ", reference=" + reference
-                + ", result=" + result + ", test=" + test + "]";
+        return "Report{" +
+                "reference=" + reference +
+                ", test='" + test + '\'' +
+                ", result='" + result + '\'' +
+                ", notes='" + notes + '\'' +
+                ", patientId='" + patientId + '\'' +
+                ", docId=" + docId +
+                '}';
     }
-    
-
 }
