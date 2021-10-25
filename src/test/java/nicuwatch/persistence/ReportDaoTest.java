@@ -7,11 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
+import javax.print.Doc;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import nicuwatch.entity.Doctor;
 import nicuwatch.entity.Report;
 
 public class ReportDaoTest {
@@ -44,7 +47,8 @@ public class ReportDaoTest {
     @Test
     void testGetByReference() {
         Report ref = dao.getByReference(1);
-        Report expectation = new Report("jDoe", "bWallis", "Lung Infection", "Positive", "Not a problem to be worried about.");
+        //Report expectation = new Report("jDoe", "bWallis", "Lung Infection", "Positive", "Not a problem to be worried about.");
+        Report expectation = new Report();
         assertNotNull(ref);
         assertTrue(ref.equals(expectation));
         //assertEquals("jDoe", ref.getPatientId());
@@ -56,11 +60,11 @@ public class ReportDaoTest {
 
     @Test
     // TODO confirgure to resemble sample work.
-    void testInsert() {
+    void testInsertSuccess() {
         //Report newInsert = new Report(0, "jDoe", "bWallis", "Lung Infection", "Positive", "Not a problem to be worried about.");
         Report report = new Report();
         report.setPatientId("jDoe");
-        report.setDocId("jMadden");
+        report.setDocId(null);
         report.setTest("Luchemia");
         report.setResult("It's Fine");
         report.setNotes("I said its fine!");
@@ -68,6 +72,14 @@ public class ReportDaoTest {
         dao.insert(report);
         List<Report> reports = dao.getAll();
         assertEquals(4, reports.size());
+    }
+
+    void testInsertWithDoctorSuccess() {
+        Report report = new Report("jDoe", "Luchemia", "its fine", "its still fine");
+        Doctor doctor = new Doctor("bWallis","Brad","Wallis",10, report);
+        int id = dao.insert(report);
+
+        
     }
 
     @Test
