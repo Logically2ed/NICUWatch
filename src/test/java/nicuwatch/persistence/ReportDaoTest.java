@@ -1,13 +1,8 @@
 package nicuwatch.persistence;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-
-import javax.print.Doc;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -41,7 +36,7 @@ public class ReportDaoTest {
     void testGetAll() {
         List<Report> reports = dao.getAll();
         assertEquals(3, reports.size());
-        logger.debug("this test returns something.");
+        logger.debug("This test should return the full size of the test Report table.");
     }
 
     @Test
@@ -50,17 +45,17 @@ public class ReportDaoTest {
         //Report expectation = new Report("jDoe", "bWallis", "Lung Infection", "Positive", "Not a problem to be worried about.");
         Report expectation = new Report();
         assertNotNull(ref);
-        assertTrue(ref.equals(expectation));
+        assertEquals(ref, expectation);
         //assertEquals("jDoe", ref.getPatientId());
         //assertEquals("bWallis", ref.getDocId());
         //assertEquals("Lung Infection", ref.getTest());
         //assertEquals("Positive", ref.getResult());
         //assertEquals("Not a problem to be worried about.", ref.getNotes());
     }
-
+ /*
     @Test
     // TODO confirgure to resemble sample work.
-    void testInsertSuccess() {
+   void testInsertSuccess() {
         //Report newInsert = new Report(0, "jDoe", "bWallis", "Lung Infection", "Positive", "Not a problem to be worried about.");
         Report report = new Report();
         report.setPatientId("jDoe");
@@ -72,11 +67,12 @@ public class ReportDaoTest {
         dao.insert(report);
         List<Report> reports = dao.getAll();
         assertEquals(4, reports.size());
-    }
+    }*/
 
+    @Test
     void testInsertWithDoctorSuccess() {
-        Report report = new Report("jDoe", "Luchemia", "its fine", "its still fine");
-        Doctor doctor = new Doctor("bWallis","Brad","Wallis",10, report);
+        Doctor doctor = new Doctor("bWallis","Brad","Wallis",10);
+        Report report = new Report("Luchemia", "its fine", "its fine");
         int id = dao.insert(report);
 
         

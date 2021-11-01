@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name = "Report")
-@Table(name = "REPORTS")
+@Table(name = "reports")
 public class Report {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
@@ -25,22 +25,33 @@ public class Report {
     @Column(name = "notes")
     private String notes;
 
-    @ManyToOne
+    //@ManyToOne
+    //@JoinColumn(name = "patient_id", nullable = false)
     private String patientId;
 
     @ManyToOne
+    @JoinColumn(name = "docId", nullable = false)
     private Doctor docId;
     
     public Report() {
     }
 
-    public Report(String test, String result, String notes, String patientId, Doctor docId) {
+    public Report(String test, String result, String notes) {
+        this.test = test;
+        this.result = result;
+        this.notes = notes;
+    }
+
+    /*
+    public Report(String test, String result, String notes, String patientId, String docId) {
         this.test = test;
         this.result = result;
         this.notes = notes;
         this.patientId = patientId;
         this.docId = docId;
     }
+
+     */
 
     public int getReference() {
         return reference;
@@ -55,13 +66,14 @@ public class Report {
     public void setPatientId(String patientId) {
         this.patientId = patientId;
     }
-
+/*
     public Doctor getDocId() {
         return docId;
     }
     public void setDocId(Doctor docId) {
         this.docId = docId;
     }
+*/
 
     public String getTest() {
         return test;
@@ -84,6 +96,13 @@ public class Report {
         this.notes = notes;
     }
 
+    public Doctor getDoctor() {
+        return docId;
+    }
+    public void setDoctor(Doctor docId) {
+        this.docId = docId;
+    }
+
     @Override
     public String toString() {
         return "Report{" +
@@ -92,7 +111,6 @@ public class Report {
                 ", result='" + result + '\'' +
                 ", notes='" + notes + '\'' +
                 ", patientId='" + patientId + '\'' +
-                ", docId=" + docId +
                 '}';
     }
 }

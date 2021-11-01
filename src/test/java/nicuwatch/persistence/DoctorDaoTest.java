@@ -1,16 +1,12 @@
 package nicuwatch.persistence;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import nicuwatch.entity.Doctor;
 
@@ -44,7 +40,7 @@ public class DoctorDaoTest {
         Doctor doct = dao.getByDocId("bWallis");
         assertNotNull(doct);
         Doctor expectation = new Doctor("bWallis","Brad","Wallis",10);
-        assertTrue(doct.equals(expectation));
+        Assertions.assertEquals(doct, expectation);
     }
 
     @Test

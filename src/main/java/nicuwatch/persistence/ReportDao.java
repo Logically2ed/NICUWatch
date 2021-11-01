@@ -2,6 +2,7 @@ package nicuwatch.persistence;
 
 import java.util.List;
 
+import nicuwatch.entity.Doctor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -9,6 +10,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import nicuwatch.entity.Report;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.CriteriaUpdate;
+import javax.persistence.criteria.Root;
 
 public class ReportDao {
     
@@ -21,6 +27,23 @@ public class ReportDao {
     public Session openCurrentSession() {
         Session session = sessionFactory.openSession();
         return session;
+    }
+
+    /**
+     * @return List<Report>
+     */
+    public List<Report> getAll() {
+
+        Session session = openCurrentSession();
+        //CriteriaBuilder builder = session.getCriteriaBuilder();
+        //CriteriaQuery<Report> query = builder.createQuery( Report.class );
+        //Root<Report> root = query.from( Report.class );
+        List<Report> reports = session.createQuery( "from Report " ).getResultList();
+
+        logger.debug("The list of users " + reports);
+        session.close();
+
+        return reports;
     }
 
     /** 
@@ -44,7 +67,7 @@ public class ReportDao {
         transaction.commit();
         session.close();
     }
-    
+
     /** 
      * @param report
      * @return int
@@ -69,21 +92,19 @@ public class ReportDao {
         transaction.commit();
         session.close();
     }
-    
-    /** 
-     * @return List<Report>
-     */
-    public List<Report> getAll() {
 
+    public List<Report> getReportByDoctorId(String docId) {
         Session session = openCurrentSession();
-        //CriteriaBuilder builder = session.getCriteriaBuilder();
-        //CriteriaQuery<Report> query = builder.createQuery( Report.class );
-        //Root<Report> root = query.from( Report.class );
-        List<Report> reports = session.createQuery( "from Report " ).getResultList();
 
-        logger.debug("The list of users " + reports);
+        logger.debug("The list of reports associated to the doctor: ");
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Report> query = builder.createQuery( Report.class );
+        Root<Report> root = query.from(Report.class);
+        query.select(root).where(builder.equal(root.get("docId"), docId));
+        List<Report> reports = session.createQuery( query ).getResultList();
+
         session.close();
-
         return reports;
     }
 }

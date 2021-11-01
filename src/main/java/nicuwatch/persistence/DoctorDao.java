@@ -23,10 +23,6 @@ public class DoctorDao {
         return session;
     }
 
-    /** 
-     * @param pId
-     * @return Doctor
-     */
     public Doctor getByDocId(String dId) {
         Session session = openCurrentSession();
         Doctor doctor = session.get(Doctor.class, dId);

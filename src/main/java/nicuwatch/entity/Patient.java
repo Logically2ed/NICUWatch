@@ -1,39 +1,40 @@
 package nicuwatch.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
-
-@Entity(name = "Doctor")
-@Table(name = "Doctor")
-public class Doctor {
+@Entity(name = "Patient")
+@Table(name = "Patient")
+public class Patient {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    @Column(name = "docId_id")
+    @Column(name = "patient_id")
     private int id;
 
     @Column(name = "first_name")
     private String firstname;
-    
+
     @Column(name = "last_name")
     private String lastname;
-    
-    @Column(name = "tenure")
-    private int tenure;
+
+    @Column(name = "birth_date")
+    private LocalDate bday;
 
     @OneToMany(mappedBy = "docId", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Report> report = new HashSet<>();
 
-    public Doctor() {
+    public Patient() {
     }
 
-    public Doctor(String docId, String firstname, String lastname, int tenure) {
+    public Patient(String docId, String firstname, String lastname, LocalDate tenure) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.tenure = tenure;
+        this.bday = tenure;
     }
 
     public String getFirstname() {
@@ -51,10 +52,10 @@ public class Doctor {
     }
 
     public int getTenure() {
-        return tenure;
+        return bday;
     }
     public void setTenure(int tenure) {
-        this.tenure = tenure;
+        this.bday = tenure;
     }
 
     public Set<Report> getReport() {
@@ -69,7 +70,7 @@ public class Doctor {
         return "Doctor{" +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", tenure=" + tenure +
+                ", tenure=" + bday +
                 ", report=" + report +
                 '}';
     }
