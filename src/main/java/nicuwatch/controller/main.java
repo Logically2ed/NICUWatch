@@ -29,7 +29,6 @@ public class main {
         report.setTest("Leg SStuff");
         report.setResult("Its Fine");
         report.setNotes("I said its fine!");
-        report.setPatientId("jDoe");
         sesh.persist(report);
         tx.commit();
         session.close();

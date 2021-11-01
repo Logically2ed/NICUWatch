@@ -20,6 +20,7 @@
 
         <mapping class= "nicuwatch.entity.Report"/>
         <mapping class= "nicuwatch.entity.Doctor"/>
+        <mapping class= "nicuwatch.entity.Patient"/>
 
     </session-factory>
 

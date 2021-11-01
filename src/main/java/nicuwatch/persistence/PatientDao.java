@@ -1,16 +1,15 @@
 package nicuwatch.persistence;
 
-import java.util.List;
-
+import nicuwatch.entity.Patient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import nicuwatch.entity.Doctor;
+import java.util.List;
 
-public class DoctorDao {
+public class PatientDao {
     
     private final Logger logger = LogManager.getLogger(this.getClass());
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
@@ -23,65 +22,64 @@ public class DoctorDao {
         return session;
     }
 
-    public Doctor getByDocId(int dId) {
+    public Patient getByPatientId(int pId) {
         Session session = openCurrentSession();
-        Doctor doctor = session.get(Doctor.class, dId);
+        Patient patient = session.get(Patient.class, pId);
         session.close();
-        return doctor;
+        return patient;
     }
 
     /** 
-     * @param doctor
+     * @param patient
      */
-    public void saveOrUpdate(Doctor doctor) {
+    public void saveOrUpdate(Patient patient) {
         Session session = openCurrentSession();
         Transaction transaction = session.beginTransaction();
-        session.saveOrUpdate(doctor);
+        session.saveOrUpdate(patient);
         transaction.commit();
         session.close();
     }
     
     /** 
-     * @param doctor
+     * @param patient
      * @return int
      */
-    public int insert(Doctor doctor){
+    public int insert(Patient patient){
         int id = 0;
         Session session = openCurrentSession();
         Transaction transaction = session.beginTransaction();
-        id = (int)session.save(doctor);
+        id = (int)session.save(patient);
         transaction.commit();
         session.close();
         return id;
     }
     
-    // FIXME i think in order to delete a row in the doctors table i ned to reassign a doctor to the associated rows first. This will probably have to be a palce holder name. Likely something that will present a flag for NULL doctor.
-    /** 
-     * @param doctor
+    /**
+     * @param patient
      */
-    public void delete(Doctor doctor){
+    public void delete(Patient patient){
         Session session = openCurrentSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(doctor);
+        session.delete(patient);
         transaction.commit();
         session.close();
     } 
 
     /** 
-     * @return List<Doctor>
+     * @return List<Patient>
      */
-    public List<Doctor> getAll() {
+    public List<Patient> getAll() {
 
         Session session = openCurrentSession();
         //CriteriaBuilder builder = session.getCriteriaBuilder();
         //CriteriaQuery<Report> query = builder.createQuery( Report.class );
         //Root<Report> root = query.from( Report.class );
-        List<Doctor> doctors = session.createQuery( "from Doctor " ).getResultList();
+        List<Patient> patients = session.createQuery( "from Patient " ).getResultList();
 
-        logger.debug("The list of users " + doctors);
+        logger.debug("The list of users " + patients);
         session.close();
 
-        return doctors;
+        return patients;
     }
 
 }

@@ -4,9 +4,6 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity(name = "Report")
 @Table(name = "reports")
 public class Report {
@@ -25,9 +22,9 @@ public class Report {
     @Column(name = "notes")
     private String notes;
 
-    //@ManyToOne
-    //@JoinColumn(name = "patient_id", nullable = false)
-    private String patientId;
+    @ManyToOne
+    @JoinColumn(name = "patientId", nullable = false)
+    private Patient patientId;
 
     @ManyToOne
     @JoinColumn(name = "docId", nullable = false)
@@ -42,8 +39,7 @@ public class Report {
         this.notes = notes;
     }
 
-    /*
-    public Report(String test, String result, String notes, String patientId, String docId) {
+    public Report(String test, String result, String notes, Patient patientId, Doctor docId) {
         this.test = test;
         this.result = result;
         this.notes = notes;
@@ -51,7 +47,14 @@ public class Report {
         this.docId = docId;
     }
 
-     */
+    public Report(int reference, String test, String result, String notes, Patient patientId, Doctor docId) {
+        this.reference = reference;
+        this.test = test;
+        this.result = result;
+        this.notes = notes;
+        this.patientId = patientId;
+        this.docId = docId;
+    }
 
     public int getReference() {
         return reference;
@@ -59,21 +62,6 @@ public class Report {
     public void setReference(int reference) {
         this.reference = reference;
     }
-
-    public String getPatientId() {
-        return patientId;
-    }
-    public void setPatientId(String patientId) {
-        this.patientId = patientId;
-    }
-/*
-    public Doctor getDocId() {
-        return docId;
-    }
-    public void setDocId(Doctor docId) {
-        this.docId = docId;
-    }
-*/
 
     public String getTest() {
         return test;
@@ -103,6 +91,13 @@ public class Report {
         this.docId = docId;
     }
 
+    public Patient getPatientId() {
+        return patientId;
+    }
+    public void setPatientId(Patient patientId) {
+        this.patientId = patientId;
+    }
+
     @Override
     public String toString() {
         return "Report{" +
@@ -111,6 +106,7 @@ public class Report {
                 ", result='" + result + '\'' +
                 ", notes='" + notes + '\'' +
                 ", patientId='" + patientId + '\'' +
+                ", docId='" + docId + '\'' +
                 '}';
     }
 }

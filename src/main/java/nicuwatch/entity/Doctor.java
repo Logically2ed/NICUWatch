@@ -30,7 +30,14 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(String docId, String firstname, String lastname, int tenure) {
+    public Doctor(String firstname, String lastname, int tenure) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.tenure = tenure;
+    }
+
+    public Doctor(int id, String firstname, String lastname, int tenure) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.tenure = tenure;
@@ -67,10 +74,9 @@ public class Doctor {
     @Override
     public String toString() {
         return "Doctor{" +
-                ", firstname='" + firstname + '\'' +
+                "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", tenure=" + tenure +
-                ", report=" + report +
                 '}';
     }
 }

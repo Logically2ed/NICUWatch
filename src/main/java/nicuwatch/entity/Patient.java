@@ -25,16 +25,23 @@ public class Patient {
     @Column(name = "birth_date")
     private LocalDate bday;
 
-    @OneToMany(mappedBy = "docId", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "patientId", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Report> report = new HashSet<>();
 
     public Patient() {
     }
 
-    public Patient(String docId, String firstname, String lastname, LocalDate tenure) {
+    public Patient(String firstname, String lastname, LocalDate bday) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.bday = tenure;
+        this.bday = bday;
+    }
+
+    public Patient(int id, String firstname, String lastname, LocalDate bday) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.bday = bday;
     }
 
     public String getFirstname() {
@@ -51,11 +58,11 @@ public class Patient {
         this.lastname = lastname;
     }
 
-    public int getTenure() {
+    public LocalDate getBday() {
         return bday;
     }
-    public void setTenure(int tenure) {
-        this.bday = tenure;
+    public void setBday(LocalDate bday) {
+        this.bday = bday;
     }
 
     public Set<Report> getReport() {
@@ -67,11 +74,10 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Doctor{" +
+        return "Patient{" +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", tenure=" + bday +
-                ", report=" + report +
+                ", bday=" + bday +
                 '}';
     }
 }

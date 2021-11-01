@@ -24,8 +24,8 @@ public class DoctorDaoTest {
 
     @Test
     void testDelete() {
-        dao.delete(dao.getByDocId("bWallis"));
-        assertNull(dao.getByDocId("bWallis"));
+        dao.delete(dao.getByDocId(1));
+        assertNull(dao.getByDocId(1));
     }
 
     @Test
@@ -37,15 +37,15 @@ public class DoctorDaoTest {
 
     @Test
     void testGetByPatientId() {
-        Doctor doct = dao.getByDocId("bWallis");
+        Doctor doct = dao.getByDocId(1);
         assertNotNull(doct);
-        Doctor expectation = new Doctor("bWallis","Brad","Wallis",10);
+        Doctor expectation = new Doctor(1,"Brad","Wallis",10);
         Assertions.assertEquals(doct, expectation);
     }
 
     @Test
     void testInsert() {
-        Doctor newInsert = new Doctor("bWallis","Brad","Wallis",10);
+        Doctor newInsert = new Doctor("New","Doctor",121);
         dao.insert(newInsert);
         List<Doctor> doctors = dao.getAll();
         assertEquals(4, doctors.size());
@@ -54,10 +54,10 @@ public class DoctorDaoTest {
     @Test
     void testSaveOrUpdate() {
         String stringToUpdate = "Eye";
-        Doctor reportToUpdate = dao.getByDocId("bWallis");
+        Doctor reportToUpdate = dao.getByDocId(1);
         reportToUpdate.setTenure(3);
         dao.saveOrUpdate(reportToUpdate);
-        Doctor newlyUpdatedTest = dao.getByDocId("bWallis");
+        Doctor newlyUpdatedTest = dao.getByDocId(1);
         assertEquals(stringToUpdate, newlyUpdatedTest.getTenure());
     }
 

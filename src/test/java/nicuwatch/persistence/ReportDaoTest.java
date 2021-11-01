@@ -1,9 +1,13 @@
 package nicuwatch.persistence;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.time.LocalDate;
 import java.util.List;
 
+import nicuwatch.entity.Patient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,14 +19,19 @@ import nicuwatch.entity.Report;
 public class ReportDaoTest {
     
     ReportDao dao;
+    DoctorDao docDao;
+    PatientDao patDao;
+
     private final Logger logger = LogManager.getLogger(this.getClass());
 
 
     @BeforeEach
     void setUp(){
         dao = new ReportDao();
+        docDao = new DoctorDao();
+        patDao = new PatientDao();
 
-        DB db = DB.getInstance();
+        nicuwatch.persistence.DB db = nicuwatch.persistence.DB.getInstance();
         db.runSQL("sample.sql");
     }
 
@@ -41,41 +50,23 @@ public class ReportDaoTest {
 
     @Test
     void testGetByReference() {
-        Report ref = dao.getByReference(1);
-        //Report expectation = new Report("jDoe", "bWallis", "Lung Infection", "Positive", "Not a problem to be worried about.");
-        Report expectation = new Report();
-        assertNotNull(ref);
-        assertEquals(ref, expectation);
-        //assertEquals("jDoe", ref.getPatientId());
-        //assertEquals("bWallis", ref.getDocId());
-        //assertEquals("Lung Infection", ref.getTest());
-        //assertEquals("Positive", ref.getResult());
-        //assertEquals("Not a problem to be worried about.", ref.getNotes());
+        Report expectation = dao.getByReference(1);
+        Patient patient = new Patient(1,"Jon", "Doe", LocalDate.parse("2021-08-06"));
+        Doctor doctor = new Doctor(1,"Brad", "Wallis", 3);
+        Report actual = new Report(1, "Lung Infection", "Positive", "Not a problem to be worried about.", patient, doctor);
+        String i = actual.toString();
+        String j = expectation.toString();
+        assertNotNull(actual);
+        assertEquals(j, i);
     }
- /*
+
     @Test
-    // TODO confirgure to resemble sample work.
-   void testInsertSuccess() {
-        //Report newInsert = new Report(0, "jDoe", "bWallis", "Lung Infection", "Positive", "Not a problem to be worried about.");
-        Report report = new Report();
-        report.setPatientId("jDoe");
-        report.setDocId(null);
-        report.setTest("Luchemia");
-        report.setResult("It's Fine");
-        report.setNotes("I said its fine!");
-        //dao.insert(newInsert);
+    void testInsertSuccess() {
+        int oldLines = dao.getAll().size();
+        Report report = new Report("Leukemia", "its fine", "its fine", patDao.getByPatientId(1), docDao.getByDocId(1));
         dao.insert(report);
-        List<Report> reports = dao.getAll();
-        assertEquals(4, reports.size());
-    }*/
-
-    @Test
-    void testInsertWithDoctorSuccess() {
-        Doctor doctor = new Doctor("bWallis","Brad","Wallis",10);
-        Report report = new Report("Luchemia", "its fine", "its fine");
-        int id = dao.insert(report);
-
-        
+        int newLines = dao.getAll().size();
+        assertEquals(oldLines + 1, newLines);
     }
 
     @Test
