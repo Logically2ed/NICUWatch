@@ -49,6 +49,13 @@ public class ReportDaoTest {
     }
 
     @Test
+    void testGetAllByDoctors() {
+        List<Report> reports = dao.getReportByDoctorId(1);
+        assertEquals(2, reports.size());
+
+    }
+
+    @Test
     void testGetByReference() {
         Report expectation = dao.getByReference(1);
         Patient patient = new Patient(1,"Jon", "Doe", LocalDate.parse("2021-08-06"));

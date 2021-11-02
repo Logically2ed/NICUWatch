@@ -35,9 +35,6 @@ public class ReportDao {
     public List<Report> getAll() {
 
         Session session = openCurrentSession();
-        //CriteriaBuilder builder = session.getCriteriaBuilder();
-        //CriteriaQuery<Report> query = builder.createQuery( Report.class );
-        //Root<Report> root = query.from( Report.class );
         List<Report> reports = session.createQuery( "from Report " ).getResultList();
 
         logger.debug("The list of users " + reports);
@@ -93,7 +90,7 @@ public class ReportDao {
         session.close();
     }
 
-    public List<Report> getReportByDoctorId(String docId) {
+    public List<Report> getReportByDoctorId(int docId) {
         Session session = openCurrentSession();
 
         logger.debug("The list of reports associated to the doctor: ");

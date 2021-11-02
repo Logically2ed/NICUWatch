@@ -29,18 +29,20 @@ public class DoctorDaoTest {
     }
 
     @Test
-    void testGetAll() {
+    void testGetAllDoctors() {
         List<Doctor> doctors = dao.getAll();
         assertEquals(3, doctors.size());
-        logger.debug("testGetAll returns: " + doctors);
+        logger.debug("testGetAllDoctors returns: " + doctors);
     }
 
     @Test
     void testGetByPatientId() {
         Doctor doct = dao.getByDocId(1);
+        String doctString = doct.toString();
         assertNotNull(doct);
-        Doctor expectation = new Doctor(1,"Brad","Wallis",10);
-        Assertions.assertEquals(doct, expectation);
+        Doctor expectation = new Doctor("Brad","Wallis",3);
+        String expectationString = expectation.toString();
+        Assertions.assertEquals(doctString, expectationString);
     }
 
     @Test
@@ -53,12 +55,12 @@ public class DoctorDaoTest {
 
     @Test
     void testSaveOrUpdate() {
-        String stringToUpdate = "Eye";
-        Doctor reportToUpdate = dao.getByDocId(1);
-        reportToUpdate.setTenure(3);
-        dao.saveOrUpdate(reportToUpdate);
+        int tenureToUpdate = 101;
+        Doctor doctorToUpdate = dao.getByDocId(1);
+        doctorToUpdate.setTenure(101);
+        dao.saveOrUpdate(doctorToUpdate);
         Doctor newlyUpdatedTest = dao.getByDocId(1);
-        assertEquals(stringToUpdate, newlyUpdatedTest.getTenure());
+        assertEquals(tenureToUpdate, newlyUpdatedTest.getTenure());
     }
 
     // TODO test to test foreign key assignment
