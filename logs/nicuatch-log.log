@@ -119,3 +119,6 @@
 [DEBUG] 2021-11-02 14:58:27.366 [main] PatientDao - The list of users [Patient{, firstname='Jon', lastname='Doe', bday=2021-08-06}]
 [DEBUG] 2021-11-02 14:58:27.374 [main] PatientDaoTest - testGetAllDoctors returns: [Patient{, firstname='Jon', lastname='Doe', bday=2021-08-06}]
 [DEBUG] 2021-11-02 14:58:27.723 [main] PatientDao - The list of users [Patient{, firstname='Jon', lastname='Doe', bday=2021-08-06}, Patient{, firstname='New', lastname='Patient', bday=1995-08-20}]
+[DEBUG] 2021-11-02 18:12:12.191 [main] PatientDao - The list of users [Patient{, firstname='Jon', lastname='Doe', bday=2021-08-06}]
+[DEBUG] 2021-11-02 18:12:12.200 [main] PatientDaoTest - testGetAllDoctors returns: [Patient{, firstname='Jon', lastname='Doe', bday=2021-08-06}]
+[DEBUG] 2021-11-02 18:12:12.479 [main] PatientDao - The list of users [Patient{, firstname='Jon', lastname='Doe', bday=2021-08-06}, Patient{, firstname='New', lastname='Patient', bday=1995-08-20}]
