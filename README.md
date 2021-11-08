@@ -7,32 +7,32 @@ NICU Watch is a web application ment to monitor and keep tabs on the vitals and 
 ### Project Technologies
 
 * Security/Authentication
-  * Tomcat's JDBC Realm Authentication
+  * AWS Cognito
 * Database
   * MySQL 8.0.26
 * ORM Framework
   * Hibernate 5.4
 * Dependency Management
   * Maven
-* CSS 
-  * Bootstrap
+* UI/UX
+  * React
 * Data Validation
-  * Bootstrap Validator for front end
   * Explore Hibernate's validation
+  * Explore React's validation
 * Logging
   * Log4J2
 * Hosting
-  * Local hosting (for testing)
   * AWS
 * Independent Research Topic/s
   * CI tools in AWS
-  * Materialize
+  * React
   * Hibernate Validation
   * Hibernate Search
-* Project Lombok
 * Unit Testing
   * JUnit tests to achieve 80%+ code coverage 
-* IDE: IntelliJ IDEA
+* IDE
+  * IntelliJ IDEA
+  * VS Code
 
 (API for medical definitions)
 

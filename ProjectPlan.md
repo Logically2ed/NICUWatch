@@ -10,29 +10,22 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] Individual users
     - [ ] separation between care providers and patient guardians
 2. welcome and login page:
-    - [ ] Welcome home page, written in basic html using Bootstrap for ease.
+    - [ ] Welcome home page, written using React for ease.
 2. Database:
-    - [ ] Build out basic DB schema (eg. lab results, vitals, etc.)
+    - [ ] Build out basic DB schema (eg. lab results, users, doctors, patients, etc.)
+1. Authentication:
     - [ ] Authentication
 3. Guardian Dashboard:
     - [ ] vitals
-    - [ ] Significant event photo capture
     - [X] Lab results
-    - [ ] feeding schedule
-    - [ ] feeding amounts
-    - [ ] add, edit, delete time stamped comments
+    - [ ] Read time stamped comments
 4. Caretaker Dashboard:
     - [ ] edit vitals
-    - [ ] edit Significant event photo capture
     - [ ] edit Lab results
-    - [ ] edit feeding schedule
-    - [ ] edit feeding amounts
     - [ ] add, edit, delete time stamped comments
-5. UX:
-    - [ ] Vitals and events layed out over graph.
+
 1. Hosting:
-    - [ ] Hosting will be done locally
-    - [ ] Local hosting will be migrated to AWS
+    - [ ] Migration to AWS.
 
 ## Phase 2: MVP With Polish
 1. UX:
@@ -40,11 +33,13 @@ An application that hosts a login, users, and live updates of the important vita
     - [ ] Hide advanced settings
 2. UI:
     - [ ] prettify to organize objects
-    - [ ] 
 3. Dashboard:
+    - [ ] view/editfeeding schedule
+    - [ ] view/edit feeding amounts
+    - [ ] view/edit Significant event photo capture
+    - [ ] view/edit vitals
     - [ ] create GUI for vitals graph
-4. Hosting:
-    - [ ] Migrate to AWS
+    - [ ] add, edit, delete time stamped comments for the guardian.
 
 ## Phase 3: Final Product Version 1
 1. Dashboard:

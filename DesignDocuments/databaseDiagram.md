@@ -4,21 +4,32 @@
     Username
     Firstname
     Lastname
-    AuthKey
-    
-
-## Account preferences
-    Name
     email
-
 
 ## Reports
     Ref#
     Doctor
+    Patient
     Test
     Result
     Notes
 
+## Doctors
+    docid
+    firstname
+    lastname
+    tenure
+
+## Patient
+    patientid
+    firstname
+    lastname
+    dob
+
+<hr>
+
+# Maybe
+    
 ## Vitals
     generated(
         RR(Resperatory rate)
@@ -28,6 +39,6 @@
     
 
 # Things to think about
-- Should there be a Table for doctors?
-- Sould there be a table for the types of results? 
+- Should there be a Table for doctors? YES
+- Sould there be a table for the types of results? NO
     - On table for test results. This requires a standard type of result that has more data than a regular result (ie. physician visit.)
