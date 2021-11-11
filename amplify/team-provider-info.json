@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifya5394a2450a84-staging-30636-authRole",
+      "UnauthRoleArn": "arn:aws:iam::190473096216:role/amplify-amplifya5394a2450a84-staging-30636-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::190473096216:role/amplify-amplifya5394a2450a84-staging-30636-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplifya5394a2450a84-staging-30636-deployment",
+      "UnauthRoleName": "amplify-amplifya5394a2450a84-staging-30636-unauthRole",
+      "StackName": "amplify-amplifya5394a2450a84-staging-30636",
+      "StackId": "arn:aws:cloudformation:us-east-1:190473096216:stack/amplify-amplifya5394a2450a84-staging-30636/61d31e80-429c-11ec-8893-0a862519ead7",
+      "AmplifyAppId": "d7gqp5wtmlwmo"
+    },
+    "categories": {
+      "auth": {
+        "nicuwatch88bfa5dd": {}
+      }
+    }
+  }
+}
