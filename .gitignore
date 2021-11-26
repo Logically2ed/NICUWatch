@@ -3,6 +3,7 @@
 /node_modules
 /target
 .settings
+auth.secret
 
 /.pnp
 .pnp.js
